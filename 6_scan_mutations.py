@@ -29,7 +29,7 @@ def relax_it(wt_pose,resi_to_mutate):
         
         mp = packed_pose.to_pose(wt_pose)
         seq = mp.sequence()
-        wt_resn = seq[resi_to_mutate]
+        wt_resn = seq[resi_to_mutate - 1]
         mutate_residue(mp,resi_to_mutate,i)
         scorefxnRelax = pyrosetta.create_score_function("ref2015_cart")
         relax_local = pyrosetta.rosetta.protocols.relax.FastRelax()
