@@ -24,6 +24,6 @@ options:
  
  Jupyter lab notebook to produce heatmap of mutations
  
- mutations_3D:
+ mutations_3D.pml:
  
  Visualize lowest energy mutations in pymol
