@@ -95,7 +95,7 @@ ddG_parser.add_argument('--cores',
 ddG_parser.add_argument('--energy_dump_cutoff',
                     metavar='ddG kcal/mole',
                     type=float,
-                    help='ddG cutoff for dump og mutant pdb in kcal/mole',
+                    help='ddG cutoff for dump of mutant pdb in kcal/mole',
                     nargs='?',
                     default=-10.)
 ddG_parser.add_argument('--radius',
