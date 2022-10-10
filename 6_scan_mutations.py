@@ -65,7 +65,7 @@ def relax_it(wt_pose,resi_to_mutate, dump_cutoff, pdb_filename, s0, NEIGHBOUR_RA
         relax_local.apply(mp) #relax after minimization
         s1=scorefxnRelax(mp)
         if s1-s0 < dump_cutoff:
-            mp.dump_pdb(pdb_filename + '_' + str(resi_to_mutate) + '_' + i + '.pdb' )
+            mp.dump_pdb("mutated_pdbs/" + pdb_filename + '_' + str(wt_resn) + str(resi_to_mutate) + i + '.pdb' )
         #minimize_Energy(mp) 
         s1=scorefxnRelax(mp)
         ddG_resi = [resi_to_mutate, wt_resn, i, s1]
@@ -113,6 +113,15 @@ input_pdb = args.pdb
 if not os.path.isfile(input_pdb):
     print('The file specified does not exist')
     sys.exit()
+
+mutDirName = "mutated_pdbs"
+
+if not os.path.exists(mutDirName):
+    os.mkdir(mutDirName)
+    print("Directory " , mutDirName ,  " Created ")
+else:    
+    print("Directory " , mutDirName ,  " already exists")
+
 
 n_cores = args.cores
 
