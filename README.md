@@ -34,7 +34,8 @@ options:
                         ddG cutoff for dump og mutant pdb in kcal/mole
   --radius [neighbour radius in Å]
                         Mutation neighbour radius in Å for repacking and energy minimization
- 
+
+Use of slurm script ddG_slurm.sh recommended for larger structures 
  
  3. Generate heatmap with mutation_heatmap.ipynb:
  
