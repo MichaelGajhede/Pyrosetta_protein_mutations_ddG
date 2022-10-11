@@ -131,44 +131,14 @@ print("Number of cores to be used: " + str(n_cores))
 
 NEIGHBOUR_RADIUS = args.radius
 
-init("-ignore_unrecognized_res 1 -ex1 -ex2 -flip_HNQ -relax:cartesian -nstruct 20 -crystal_refine -optimization:default_max_cycles 200")
+init("-ignore_unrecognized_res 1 -ex1 -ex2 -flip_HNQ -relax:cartesian -nstruct 20 -crystal_refine -optimization:default_max_cycles 2000")
 
 testPose= Pose()
 testPose = pose_from_pdb(input_pdb)
 #scorefxnDDG=get_fa_scorefxn()
 
-'''
-#Optional energy minimization
-min_mover = MinMover() #define a Mover in type of MinMover
-mm=MoveMap()
-mm.set_bb_true_range(28,36)
-min_mover.movemap(mm)
-min_mover.score_function(scorefxnDDG)
-#min_mover.min_type("dfpmin")
-min_mover.tolerance(0.01)
-print(min_mover)
 
-def minimize_Energy(pose):
-    #Minimization#
-    min_mover.apply(pose)
-
-    #Trial_mover define#
-    kT=1
-    mc=MonteCarlo(pose,scorefxnDDG,kT)
-    mc.boltzmann(pose)
-    mc.recover_low(pose)
-
-    trial_mover = TrialMover(min_mover,mc)
-    #Monte Carlo#
-    for i in range (100):
-        trial_mover.apply(pose)
-    
-    return
-
-'''
-
-
-#Firstly relax the structure for later modificiation#
+#Firstly relax the structure for later modification
 from pyrosetta.rosetta.protocols.relax import FastRelax
 scorefxnRelax = pyrosetta.create_score_function("ref2015_cart")
 relax = pyrosetta.rosetta.protocols.relax.FastRelax()

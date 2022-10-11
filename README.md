@@ -2,6 +2,22 @@
 
 Title says it all. Requires pyrosetta serial installation. Based on snippets from other peoples code, code that I could not get to work on my systems.
 
+Workflow:
+
+1. Minimize wt structure with script with script min_mc_on_wt.py
+
+python min_mc_on_wt.py -h
+
+usage: min_mc_on_wt.py [-h] [--pdb PDB filename]
+
+Minimize wt structure before mutations
+
+options:
+  -h, --help          show this help message and exit
+  --pdb PDB filename  pdb file with wt protein structure
+
+
+2. Calculate ddG for all single mutations
 
 python Pyrosetta_protein_mutations_ddG % python 6_scan_mutations.py -h
 
@@ -20,10 +36,10 @@ options:
                         Mutation neighbour radius in Å for repacking and energy minimization
  
  
- mutation_heatmap.ipynb:
+ 3. Generate heatmap with mutation_heatmap.ipynb:
  
  Jupyter lab notebook to produce heatmap of mutations
  
- mutations_3D.pml:
+ 4. Visualize mutations on 3D structure with mutations_3D.pml:
  
  Visualize lowest energy mutations in pymol
