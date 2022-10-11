@@ -43,4 +43,4 @@ Use of slurm script ddG_slurm.sh recommended for larger structures
  
  4. Visualize mutations on 3D structure with mutations_3D.pml:
  
- Visualize lowest energy mutations in pymol
+ Visualize lowest energy mutations in pymol. Lowest energy mutations structures can be found in the mutated_pdbs folder and superimposed.
